@@ -1,3 +1,4 @@
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
@@ -7,14 +8,20 @@ import static org.junit.Assert.assertThat;
 
 @RunWith(JUnit4.class)
 public class MobileTest extends BasicMobileTest {
+    private String name = "name";
+    private String color = "red";
+    private String brand = "Nokia";
+    private Mobile mobile;
+
+    @Override
+    @Before
+    public void setUp() {
+        super.setUp();
+        mobile = new Mobile(name, color, brand);
+    }
+
     @Test
     public void should_has_name_color_and_brand_fields_when_generate_a_mobile() {
-        String name = "name";
-        String color = "red";
-        String brand = "Nokia";
-
-        Mobile mobile = new Mobile(name, color, brand);
-
         assertThat(mobile.getName(), is(name));
         assertThat(mobile.getColor(), is(color));
         assertThat(mobile.getBrand(), is(brand));
@@ -22,11 +29,15 @@ public class MobileTest extends BasicMobileTest {
 
     @Test
     public void should_output_messages_when_use_mobile_to_take_a_call() {
-        Mobile mobile = new Mobile("name", "red", "brand");
-
         mobile.call("message content");
 
         assertThat(systemOut(), is("Message : message content"));
     }
 
+    @Test
+    public void should_output_mobile_basic_info_when_invoke_method() {
+        mobile.printMobileInfo();
+
+        assertThat(systemOut(), is("name: name, color: red, brand: Nokia"));
+    }
 }

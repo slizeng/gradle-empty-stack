@@ -1,3 +1,5 @@
+import static java.lang.String.format;
+
 public class Mobile {
     private String name;
     private String color;
@@ -7,6 +9,14 @@ public class Mobile {
         this.name = name;
         this.color = color;
         this.brand = brand;
+    }
+
+    public void call(String message) {
+        System.out.print(format("Message : %s", message));
+    }
+
+    public void printMobileInfo() {
+        System.out.print(format("name: %s, color: %s, brand: %s", name, color, brand));
     }
 
     public String getName() {
@@ -19,9 +29,5 @@ public class Mobile {
 
     public String getBrand() {
         return brand;
-    }
-
-    public void call(String message) {
-        System.out.print(String.format("Message : %s", message));
     }
 }
