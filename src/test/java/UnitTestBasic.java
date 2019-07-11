@@ -1,9 +1,12 @@
 import org.junit.Before;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-public class BasicMobileTest {
+@RunWith(JUnit4.class)
+public class UnitTestBasic {
     private ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
     @Before
