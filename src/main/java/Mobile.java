@@ -22,6 +22,6 @@ public class Mobile {
     }
 
     public void call(String message) {
-        System.out.print(String.format("<iPhone>Message : %s", message));
+        System.out.print(String.format("Message : %s", message));
     }
 }

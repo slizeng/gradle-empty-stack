@@ -26,7 +26,7 @@ public class MobileTest extends BasicMobileTest {
 
         mobile.call("message content");
 
-        assertThat(systemOut(), is("<iPhone>Message : message content"));
+        assertThat(systemOut(), is("Message : message content"));
     }
 
 }
