@@ -2,6 +2,7 @@ import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 public class PersonTest extends UnitTestBasic {
 
@@ -25,6 +26,23 @@ public class PersonTest extends UnitTestBasic {
         person.call("message");
 
         assertThat(systemOut(), is("<Android>Message : message"));
+    }
+
+    @Test
+    public void should_a_person_be_able_to_change_mobile() {
+        Android android = new Android("Android", "color", "brand");
+        IPhone iPhone = new IPhone("IPhone", "color", "brand");
+        Person person = new Person("Arthas");
+
+        person.changeMobile(android);
+        person.call("message");
+
+        assertThat(systemOut(), is("<Android>Message : message"));
+
+        person.changeMobile(iPhone);
+        person.call("message");
+
+        assertTrue(systemOut().contains("<iPhone>Message : message"));
     }
 
 }
